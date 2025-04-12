@@ -4,7 +4,8 @@ def count_words(text):
     num_words = 0
     for word in words:
         num_words += 1
-    print(f'{num_words} words found in the document')
+    # print(f'{num_words} words found in the document')
+    return num_words
 
 def character_stats(text):
     lower_text = text.lower()
@@ -16,10 +17,22 @@ def character_stats(text):
             characters[character] = 1
     return characters
 
-def printing_format(characters):
+
+def printing_format(characters, character_number, file_path):
     my_list = []
     for value in characters:
         dic =  { 'char': value, 'count': characters[value] } 
         my_list.append(dic)
     my_list.sort(key=lambda character: character['count'], reverse = True )
-    print(my_list)
+    print('============ BOOKBOT ============')
+    print(f'Analyzing book found at {file_path}...')
+    print('----------- Word Count ----------')
+    print(f'Found {character_number} total words')
+    print('--------- Character Count -------')
+    
+    # e: 44538
+    for element in my_list:
+        if element['char'].isalpha():
+            # print(f'{element\[\"char\"\]}')
+            print(f'{element["char"]}: {element["count"]}')
+    print('============= END ===============')
