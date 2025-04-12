@@ -14,4 +14,12 @@ def character_stats(text):
             characters[character] += 1
         else:
             characters[character] = 1
-    print(characters)
+    return characters
+
+def printing_format(characters):
+    my_list = []
+    for value in characters:
+        dic =  { 'char': value, 'count': characters[value] } 
+        my_list.append(dic)
+    my_list.sort(key=lambda character: character['count'], reverse = True )
+    print(my_list)

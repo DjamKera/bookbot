@@ -1,4 +1,4 @@
-from stats import count_words , character_stats
+from stats import count_words, character_stats, printing_format
 
 def get_book_text(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
@@ -11,6 +11,8 @@ def main():
     count_words(book_text)
     #print all characters
     character_stats(book_text)
+    #print in the requested format
+    printing_format(character_stats(book_text))
 
 
 main()
