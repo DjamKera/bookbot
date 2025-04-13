@@ -11,14 +11,15 @@ def character_stats(text):
     lower_text = text.lower()
     characters = {}
     for character in lower_text:
-        if character in characters:
-            characters[character] += 1
-        else:
-            characters[character] = 1
+        if character.isalpha():
+            if character in characters:
+                characters[character] += 1
+            else:
+                characters[character] = 1
     return characters
 
 
-def printing_format(characters, character_number, file_path):
+def printing_format(characters, words_number, file_path):
     my_list = []
     for value in characters:
         dic =  { 'char': value, 'count': characters[value] } 
@@ -27,12 +28,8 @@ def printing_format(characters, character_number, file_path):
     print('============ BOOKBOT ============')
     print(f'Analyzing book found at {file_path}...')
     print('----------- Word Count ----------')
-    print(f'Found {character_number} total words')
+    print(f'Found {words_number} total words')
     print('--------- Character Count -------')
-    
-    # e: 44538
     for element in my_list:
-        if element['char'].isalpha():
-            # print(f'{element\[\"char\"\]}')
-            print(f'{element["char"]}: {element["count"]}')
+        print(f'{element["char"]}: {element["count"]}')
     print('============= END ===============')
